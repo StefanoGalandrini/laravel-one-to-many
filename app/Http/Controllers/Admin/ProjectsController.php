@@ -64,13 +64,14 @@ class ProjectsController extends Controller
         $data = $request->all();
 
         // Save Data
-        $newProject = new Project();
+        $newProject                 = new Project();
 
-        $newProject->title = $data['title'];
-        $newProject->url_image = $data['url_image'];
-        $newProject->description = $data['description'];
-        $newProject->creation_date = $data['creation_date'];
-        $newProject->url_repo = $data['url_repo'];
+        $newProject->title          = $data['title'];
+        $newProject->type_id        = $data['type_id'];
+        $newProject->url_image      = $data['url_image'];
+        $newProject->description    = $data['description'];
+        $newProject->creation_date  = $data['creation_date'];
+        $newProject->url_repo       = $data['url_repo'];
 
         $newProject->save();
 
