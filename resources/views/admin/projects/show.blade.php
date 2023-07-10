@@ -2,7 +2,7 @@
 
 @section('contents')
 	@if (session('update_success'))
-		@php $project = session('delete_success') @endphp
+		@php $project = session('update_success') @endphp
 		<div class="alert alert-success">
 			Project "{{ $project->title }}" has been successfully updated
 		</div>
