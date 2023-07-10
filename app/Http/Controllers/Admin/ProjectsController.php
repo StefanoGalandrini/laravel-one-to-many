@@ -35,7 +35,7 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects = Project::paginate(4);
+        $projects = Project::paginate(3);
         return view('admin.projects.index', ['projects' => $projects]);
     }
 
