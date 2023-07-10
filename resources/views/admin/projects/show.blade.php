@@ -12,6 +12,7 @@
 		<div class="card-body">
 			<h2 class="card-title">PROJECT:</h2>
 			<h3>{{ $project->title }}</h3>
+			<h4>- Type: {{ $project->type->name }}</h4>
 			<p class="card-text mt-5">Description:</p>
 			<p>{{ $project->description }}</p>
 		</div>
