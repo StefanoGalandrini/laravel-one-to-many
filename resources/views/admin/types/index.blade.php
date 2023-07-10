@@ -10,6 +10,7 @@
 			</div>
 		@endif --}}
 
+		<h1>Types</h1>
 		<div class="d-flex justify-content-center">
 			<table class="table table-bordered table-secondary table-striped table-hover table-rounded">
 				<thead>

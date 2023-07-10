@@ -15,6 +15,8 @@
 					<a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
 				</li>
 
+
+				{{-- Dropdown menu for Projects --}}
 				<li class="nav-item dropdown">
 
 					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -36,6 +38,8 @@
 						@endif
 					</ul>
 
+
+					{{-- Dropdown menu for Types --}}
 				<li class="nav-item dropdown">
 
 					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,7 +47,7 @@
 					</a>
 					<ul class="dropdown-menu">
 						<li><a class="dropdown-item" href="{{ route('admin.types.index') }}">Index</a></li>
-						<li><a class="dropdown-item" href="{{ route('admin.types.create') }}">Create</a></li>
+						{{-- <li><a class="dropdown-item" href="{{ route('admin.types.create') }}">Create</a></li>
 						@if (isset($project) && Route::currentRouteName() !== 'admin.types.index')
 							<li><a class="dropdown-item" href="{{ route('admin.types.edit', ['project' => $project]) }}">Edit</a></li>
 						@endif
@@ -54,7 +58,7 @@
 									Delete
 								</button>
 							</li>
-						@endif
+						@endif --}}
 					</ul>
 				</li>
 			</ul>

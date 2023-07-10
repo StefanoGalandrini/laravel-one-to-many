@@ -10,6 +10,7 @@
 			</div>
 		@endif
 
+		<h1>Projects</h1>
 		<div class="d-flex justify-content-center">
 			<table class="table table-bordered table-secondary table-striped table-hover table-rounded">
 				<thead>
@@ -26,7 +27,10 @@
 					@foreach ($projects as $project)
 						<tr>
 							<td class="fw-bold fs-6">{{ $project->title }}</td>
-							<td class="fw-bold fs-10">{{ $project->type->name }}</td>
+							<td class="fw-bold fs-10">
+								<a href="{{ route('admin.types.show', ['type' => $project->type]) }}">{{ $project->type->name }}
+								</a>
+							</td>
 							<td><img class="img-thumbnail" src="{{ $project->url_image }}" alt="{{ $project->title }}" style="width: 200px;">
 							</td>
 							<td>{{ \Carbon\Carbon::parse($project->creation_date)->format('d M Y') }}</td>
