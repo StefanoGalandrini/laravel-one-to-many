@@ -21,10 +21,10 @@
 					<ul class="dropdown-menu">
 						<li><a class="dropdown-item" href="{{ route('admin.projects.index') }}">Index</a></li>
 						<li><a class="dropdown-item" href="{{ route('admin.projects.create') }}">Create</a></li>
-						@if (isset($project))
+						@if (isset($project) && Route::currentRouteName() !== 'admin.projects.index')
 							<li><a class="dropdown-item" href="{{ route('admin.projects.edit', ['project' => $project]) }}">Edit</a></li>
 						@endif
-						@if (isset($project))
+						@if (isset($project) && Route::currentRouteName() !== 'admin.projects.index')
 							<li>
 								<button type="button" class="btn btn-danger btn-sm js-delete ms-2" data-bs-toggle="modal"
 									data-bs-target="#deleteModal" data-id="{{ $project->id }}">
@@ -76,7 +76,7 @@
 					@method('delete')
 					<button class="btn btn-danger">Yes</button>
 				</form>
-				<button type="button" class="btn btn-secondary">Cancel</button>
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
 			</div>
 		</div>
 	</div>
