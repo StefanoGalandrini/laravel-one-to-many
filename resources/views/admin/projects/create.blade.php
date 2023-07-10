@@ -77,7 +77,7 @@
 			</div>
 
 			<div class="mb-3">
-				<label for="url_repo" class="form-label">URL repo</label>
+				<label for="url_repo" class="form-label">URL Repository</label>
 				<input type="url" class="form-control @error('url_repo') is-invalid @enderror" id="url_repo" name="url_repo"
 					value="{{ old('url_repo') }}">
 				@error('url_repo')

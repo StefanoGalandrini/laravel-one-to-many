@@ -21,6 +21,7 @@ class ProjectsController extends Controller
 
     private $validation_messages = [
         'required'   => ':attribute is a required field',
+        'exists'     => ':attribute is out of range',
         'min'        => ':attribute must be at least :min characters long',
         'max'        => ':attribute must be less than :max characters long',
         'url'        => ':attribute must be a valid URL address',
@@ -64,7 +65,7 @@ class ProjectsController extends Controller
         $data = $request->all();
 
         // Save Data
-        $newProject                 = new Project();
+        $newProject = new Project();
 
         $newProject->title          = $data['title'];
         $newProject->type_id        = $data['type_id'];
