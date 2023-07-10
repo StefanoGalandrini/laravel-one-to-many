@@ -31,7 +31,7 @@
 								<a href="{{ route('admin.types.show', ['type' => $project->type]) }}">{{ $project->type->name }}
 								</a>
 							</td>
-							<td><img class="img-thumbnail" src="{{ $project->url_image }}" alt="{{ $project->title }}" style="width: 200px;">
+							<td><img class="img-thumbnail" src="{{ $project->url_image }}" alt="{{ $project->title }}" style="width: 100px;">
 							</td>
 							<td>{{ \Carbon\Carbon::parse($project->creation_date)->format('d M Y') }}</td>
 							<td><a href="{{ $project->github_url }}">{{ $project->url_repo }}</a></td>
