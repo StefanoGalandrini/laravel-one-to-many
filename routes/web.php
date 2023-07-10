@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Admin\ProjectsController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Guests\PageController as GuestsPageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,9 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', [AdminPageController::class, 'dashboard'])->name('dashboard');
         Route::resource('projects', ProjectsController::class);
+
+        // Routes for Types
+        Route::resource('projects', TypeController::class);
     });
 
 
