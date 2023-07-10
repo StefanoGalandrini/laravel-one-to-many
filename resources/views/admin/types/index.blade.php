@@ -3,39 +3,34 @@
 @section('contents')
 	<div class="wrapper w-100 mx-auto">
 		{{-- Messaggio di conferma cancellazione --}}
-		@if (session('delete_success'))
-			@php $project = session('delete_success') @endphp
+		{{-- @if (session('delete_success'))
+			@php $type = session('delete_success') @endphp
 			<div class="alert alert-danger">
-				Project "{{ $project->title }}" has been deleted
+				Type "{{ $type->name }}" has been deleted
 			</div>
-		@endif
+		@endif --}}
 
 		<div class="d-flex justify-content-center">
 			<table class="table table-bordered table-secondary table-striped table-hover table-rounded">
 				<thead>
 					<tr class="thead-dark">
-						<th>Title</th>
-						<th>Type</th>
-						<th>Image</th>
-						<th>Creation Date</th>
-						<th>Github URL</th>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Description</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
-					@foreach ($projects as $project)
+					@foreach ($types as $type)
 						<tr>
-							<td class="fw-bold fs-6">{{ $project->title }}</td>
-							<td class="fw-bold fs-10">{{ $project->type->name }}</td>
-							<td><img class="img-thumbnail" src="{{ $project->url_image }}" alt="{{ $project->title }}" style="width: 200px;">
-							</td>
-							<td>{{ \Carbon\Carbon::parse($project->creation_date)->format('d M Y') }}</td>
-							<td><a href="{{ $project->github_url }}">{{ $project->url_repo }}</a></td>
+							<td class="fs-10">{{ $type->id }}</td>
+							<td class="fs-4">{{ $type->name }}</td>
+							<td class="fs-15">{{ $type->description }}</td>
 							<td>
-								<a href="{{ route('admin.projects.show', ['project' => $project]) }}" class="btn btn-warning btn-sm">Show</a>
-								<a href="{{ route('admin.projects.edit', ['project' => $project]) }}" class="btn btn-primary btn-sm">Edit</a>
+								<a href="{{ route('admin.types.show', ['type' => $type]) }}" class="btn btn-warning btn-sm">Show</a>
+								<a href="{{ route('admin.types.edit', ['type' => $type]) }}" class="btn btn-primary btn-sm">Edit</a>
 								<button type="button" class="btn btn-danger btn-sm js-delete" data-bs-toggle="modal"
-									data-bs-target="#deleteModal" data-id="{{ $project->id }}">
+									data-bs-target="#deleteModal" data-id="{{ $type->id }}">
 									Delete
 								</button>
 							</td>
@@ -70,6 +65,5 @@
 			</div>
 		</div>
 
-		{{ $projects->links() }}
 	</div>
 @endsection
