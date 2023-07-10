@@ -34,7 +34,8 @@
 				<label for="type" class="form-label">Type</label>
 				<select class="form-select @error('type_id') is-invalid @enderror" id="type" name="type_id">
 					@foreach ($types as $type)
-						<option value="{{ $type->id }}" @if ($project->type->id === $type->id) selected @endif>{{ $type->name }}</option>
+						<option value="{{ $type->id }}" @if ((int) old('type_id', $project->type->id) === $type->id) selected @endif>{{ $type->name }}
+						</option>
 					@endforeach
 				</select>
 				@error('type_id')
