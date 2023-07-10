@@ -22,6 +22,7 @@
 				<thead>
 					<tr class="thead-dark">
 						<th>Title</th>
+						<th>Type</th>
 						<th>Image</th>
 						<th>Creation Date</th>
 						<th>Github URL</th>
@@ -31,8 +32,10 @@
 				<tbody>
 					@foreach ($projects as $project)
 						<tr>
-							<td class="fw-bold fs-5">{{ $project->title }}</td>
-							<td><img class="img-thumbnail" src="{{ $project->url_image }}" alt="{{ $project->title }}" style="width: 200px;"></td>
+							<td class="fw-bold fs-6">{{ $project->title }}</td>
+							<td class="fw-bold fs-10">{{ $project->type->name }}</td>
+							<td><img class="img-thumbnail" src="{{ $project->url_image }}" alt="{{ $project->title }}" style="width: 200px;">
+							</td>
 							<td>{{ \Carbon\Carbon::parse($project->creation_date)->format('d M Y') }}</td>
 							<td><a href="{{ $project->github_url }}">{{ $project->url_repo }}</a></td>
 							<td>
