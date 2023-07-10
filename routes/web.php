@@ -29,7 +29,7 @@ Route::middleware(['auth', 'verified'])
         Route::resource('projects', ProjectsController::class);
 
         // Routes for Types
-        Route::resource('projects', TypeController::class);
+        Route::resource('types', TypeController::class);
     });
 
 

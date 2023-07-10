@@ -14,7 +14,9 @@
 				<li class="nav-item">
 					<a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
 				</li>
+
 				<li class="nav-item dropdown">
+
 					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						PROJECTS
 					</a>
@@ -25,6 +27,27 @@
 							<li><a class="dropdown-item" href="{{ route('admin.projects.edit', ['project' => $project]) }}">Edit</a></li>
 						@endif
 						@if (isset($project) && Route::currentRouteName() !== 'admin.projects.index')
+							<li>
+								<button type="button" class="btn btn-danger btn-sm js-delete ms-2" data-bs-toggle="modal"
+									data-bs-target="#deleteModal" data-id="{{ $project->id }}">
+									Delete
+								</button>
+							</li>
+						@endif
+					</ul>
+
+				<li class="nav-item dropdown">
+
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						TYPES
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="{{ route('admin.types.index') }}">Index</a></li>
+						<li><a class="dropdown-item" href="{{ route('admin.types.create') }}">Create</a></li>
+						@if (isset($project) && Route::currentRouteName() !== 'admin.types.index')
+							<li><a class="dropdown-item" href="{{ route('admin.types.edit', ['project' => $project]) }}">Edit</a></li>
+						@endif
+						@if (isset($project) && Route::currentRouteName() !== 'admin.types.index')
 							<li>
 								<button type="button" class="btn btn-danger btn-sm js-delete ms-2" data-bs-toggle="modal"
 									data-bs-target="#deleteModal" data-id="{{ $project->id }}">
