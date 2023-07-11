@@ -11,7 +11,7 @@ class TypeController extends Controller
     // Validations
     protected $validationRules = [
         'name' => 'required|max:20',
-        'description' => 'required|max:200',
+        'description' => 'required|text',
     ];
 
 
